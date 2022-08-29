@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
-
 import './App.css';
-
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
 import Home from './components/Home'
 import About from './components/About'
 import Packages from './components/Packages'
@@ -31,8 +31,32 @@ function App() {
               </li>
             </ul>
           </div>
+          
         </header>
 
+        //inserting Nav Container 
+        <Container>
+    <Nav defaultActiveKey="/" variant="tabs" fill>
+        <Nav.Item>
+            <Nav.Link href="/"> 
+                <Link to="/">Home</Link>
+            </Nav.Link>
+        </Nav.Item>
+        <Nav.Item >
+            <Nav.Link eventKey={"aboutPage"}> 
+                <Link to="/about">About Us</Link>
+            </Nav.Link>
+        </Nav.Item>
+        <Nav.Item >
+            <Nav.Link eventKey={"packagesPage"}> 
+                <Link to="/packages">Our Packages</Link> 
+            </Nav.Link>
+         </Nav.Item>
+    </Nav>
+</Container>
+
+      
+      
         <div className="display">
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
